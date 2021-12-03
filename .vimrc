@@ -12,7 +12,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -38,7 +37,6 @@ set noswapfile
 set hlsearch
 set ignorecase
 set incsearch
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key bindings
