@@ -129,6 +129,18 @@ colorscheme hybrid
 " endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Scripts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Return to last edit position when opening files.
+function! ResumeCursorPosition()
+  if line("'\"") > 0 && line("'\"") <= line("$") |
+    exe "normal! g`\"" |
+  endif
+endfunction
+autocmd BufReadPost * call ResumeCursorPosition()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
