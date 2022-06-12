@@ -20,7 +20,11 @@ Plug 'yggdroot/indentline'
 
 " Code
 Plug 'dense-analysis/ale'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
+
+" Visual
+Plug 'ap/vim-css-color'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -34,6 +38,8 @@ let g:ale_fix_on_save = 1
 " davidhalter/jedi-vim
 let g:jedi#force_py_version = 3
 
+" w0ng/vim-hybrid
+let g:hybrid_custom_term_colors = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
@@ -98,6 +104,29 @@ let mapleader = " "
 
 " Leader key shortcuts.
 vmap <leader>k gc
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Color scheme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set background=dark
+" set background=light
+colorscheme hybrid
+
+" w0ng/vim-hybrid
+" if exists('g:colors_name') && g:colors_name == 'hybrid'
+"   hi CursorLineNr ctermbg=black
+"   hi ErrorMsg           cterm=none ctermfg=red   ctermbg=none
+"   hi SpellBad           cterm=none ctermfg=black ctermbg=red
+"   hi TabLine            cterm=none ctermfg=gray  ctermbg=black
+"   hi MatchParen         cterm=none ctermfg=lightgray  ctermbg=lightblue
+"   hi TabLineFill        cterm=none ctermfg=none  ctermbg=black
+"   hi TabLineSel         cterm=bold ctermfg=gray  ctermbg=none
+"   hi DiffAdd            cterm=none ctermfg=none  ctermbg=green
+"   hi DiffChange         cterm=none ctermfg=none  ctermbg=blue
+"   hi DiffDelete         cterm=none ctermfg=none  ctermbg=red
+"   hi SyntasticErrorSign cterm=none ctermfg=red   ctermbg=none
+" endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
