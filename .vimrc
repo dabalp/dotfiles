@@ -25,6 +25,8 @@ Plug 'dense-analysis/ale'
 " Visual
 Plug 'ap/vim-css-color'
 Plug 'w0ng/vim-hybrid'
+" Plug 'sickill/vim-monokai'
+
 
 call plug#end()
 
@@ -38,12 +40,13 @@ let g:ale_fix_on_save = 1
 " davidhalter/jedi-vim
 let g:jedi#force_py_version = 3
 
-" w0ng/vim-hybrid
-let g:hybrid_custom_term_colors = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" w0ng/vim-hybrid
+let g:hybrid_custom_term_colors = 1
 
 " Yggdroot/indentLine
 " let g:indentLine_setConceal = 0
