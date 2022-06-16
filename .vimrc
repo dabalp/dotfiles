@@ -14,15 +14,21 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Tools.
+Plug 'airblade/vim-gitgutter'
+
+" Editing.
+Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'yggdroot/indentline'
 
-" Code
+" Code.
 Plug 'dense-analysis/ale'
+Plug 'Shougo/deoplete.nvim'
 " Plug 'davidhalter/jedi-vim'
 
-" Visual
+" Visual.
 Plug 'ap/vim-css-color'
 Plug 'w0ng/vim-hybrid'
 " Plug 'sickill/vim-monokai'
@@ -117,19 +123,20 @@ set background=dark
 colorscheme hybrid
 
 " w0ng/vim-hybrid
-" if exists('g:colors_name') && g:colors_name == 'hybrid'
-"   hi CursorLineNr ctermbg=black
-"   hi ErrorMsg           cterm=none ctermfg=red   ctermbg=none
-"   hi SpellBad           cterm=none ctermfg=black ctermbg=red
-"   hi TabLine            cterm=none ctermfg=gray  ctermbg=black
-"   hi MatchParen         cterm=none ctermfg=lightgray  ctermbg=lightblue
-"   hi TabLineFill        cterm=none ctermfg=none  ctermbg=black
-"   hi TabLineSel         cterm=bold ctermfg=gray  ctermbg=none
-"   hi DiffAdd            cterm=none ctermfg=none  ctermbg=green
-"   hi DiffChange         cterm=none ctermfg=none  ctermbg=blue
-"   hi DiffDelete         cterm=none ctermfg=none  ctermbg=red
-"   hi SyntasticErrorSign cterm=none ctermfg=red   ctermbg=none
-" endif
+if exists('g:colors_name') && g:colors_name == 'hybrid'
+  hi CursorLineNr ctermbg=black
+  hi ErrorMsg           cterm=none ctermfg=red   ctermbg=none
+  hi SpellBad           cterm=none ctermfg=black ctermbg=red
+  hi TabLine            cterm=none ctermfg=gray  ctermbg=black
+  hi MatchParen         cterm=none ctermfg=lightgray  ctermbg=lightblue
+  hi TabLineFill        cterm=none ctermfg=none  ctermbg=black
+  hi TabLineSel         cterm=bold ctermfg=gray  ctermbg=none
+  hi DiffAdd            cterm=none ctermfg=none  ctermbg=green
+  hi DiffChange         cterm=none ctermfg=none  ctermbg=blue
+  hi DiffDelete         cterm=none ctermfg=none  ctermbg=red
+  hi SyntasticErrorSign cterm=none ctermfg=red   ctermbg=none
+  hi Comment            cterm=none ctermfg=darkgray   ctermbg=none
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts
@@ -147,16 +154,16 @@ autocmd BufReadPost * call ResumeCursorPosition()
 " Languages
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" function! PythonSyntax()
-"   syntax match MyPythonSelf "\<self\>\.\?"
-"   syntax match MyPythonLibrary "\<np\.\|\<tf\.\|\<scipy\.\<os\."
-"   syntax match MyPythonKwarg "\((\| \)\@<=\<[A-Za-z0-9_]\+\>="
-"   syntax match MyPythonNumber "\<[0-9.]\+\>\.\?"
-"   hi MyPythonSelf    cterm=none ctermfg=gray ctermbg=none
-"   hi MyPythonLibrary cterm=none ctermfg=gray ctermbg=none
-"   hi MyPythonKwarg   cterm=none ctermfg=magenta ctermbg=none
-"   hi MyPythonNumber  cterm=none ctermfg=red ctermbg=none
-" endfunction
+function! PythonSyntax()
+  syntax match MyPythonSelf "\<self\>\.\?"
+  syntax match MyPythonLibrary "\<np\.\|\<tf\.\|\<scipy\.\<os\."
+  syntax match MyPythonKwarg "\((\| \)\@<=\<[A-Za-z0-9_]\+\>="
+  syntax match MyPythonNumber "\<[0-9.]\+\>\.\?"
+  hi MyPythonSelf    cterm=none ctermfg=gray ctermbg=none
+  hi MyPythonLibrary cterm=none ctermfg=gray ctermbg=none
+  hi MyPythonKwarg   cterm=none ctermfg=magenta ctermbg=none
+  hi MyPythonNumber  cterm=none ctermfg=blue ctermbg=none
+endfunction
 
 " autocmd BufNewFile,BufRead *.md set filetype=markdown
 " autocmd BufNewFile,BufRead *.ad set filetype=asciidoc
@@ -166,7 +173,7 @@ autocmd BufReadPost * call ResumeCursorPosition()
 
 autocmd FileType python setlocal ts=2 sw=2 sts=2
 autocmd FileType python setlocal tw=88
-" autocmd FileType python call PythonSyntax()
+autocmd FileType python call PythonSyntax()
 " " autocmd FileType python,sh setlocal iskeyword-=_
 " autocmd FileType markdown,tex set conceallevel=0
 
