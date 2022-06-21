@@ -22,6 +22,9 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'yggdroot/indentline'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 " Code.
 Plug 'dense-analysis/ale'
@@ -43,13 +46,29 @@ let g:ale_python_flake8_options = '
 \ --ignore=F403,E402,E111,E114,E302,E306,E125,E731,W504,E305,E221,E129,C741,E704,E701,E702,E722,E201,E241,E401'
 let g:ale_fix_on_save = 1
 
-" davidhalter/jedi-vim
-let g:jedi#force_py_version = 3
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Shougo/deoplete.nvim
+let g:python3_host_prog = '/usr/bin/python3'
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<c-j>"
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+call deoplete#custom#option('min_pattern_length', 1)
+" call deoplete#custom#option('sources', {'_': 'buffer']})
+
+" deoplete-plugins/deoplete-jedi
+" let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
+" let g:deoplete#sources#jedi#enable_typeinfo = 0  " Faster
+
+" davidhalter/jedi-vim
+" let g:jedi#completions_enabled = 0
+let g:jedi#force_py_version = 3
+" let g:jedi#use_tabs_not_buffers = 1
 
 " w0ng/vim-hybrid
 let g:hybrid_custom_term_colors = 1
@@ -57,6 +76,10 @@ let g:hybrid_custom_term_colors = 1
 " Yggdroot/indentLine
 " let g:indentLine_setConceal = 0
 
+" SirVer/ultisnips
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
@@ -70,6 +93,7 @@ set expandtab
 set cursorline
 set number
 set ruler
+set completeopt-=preview
 
 syntax on
 set noswapfile
@@ -171,7 +195,7 @@ endfunction
 " autocmd BufNewFile,BufRead *.scss set tw=0
 " autocmd FileType * set conceallevel=0
 
-autocmd FileType python setlocal ts=2 sw=2 sts=2
+autocmd FileType python setlocal ts=2 sw=2 sts=4
 autocmd FileType python setlocal tw=88
 autocmd FileType python call PythonSyntax()
 " " autocmd FileType python,sh setlocal iskeyword-=_
