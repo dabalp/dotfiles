@@ -30,10 +30,12 @@ Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim'
 " Plug 'davidhalter/jedi-vim'
+Plug 'github/copilot.vim'
 
 " Visual.
 Plug 'ap/vim-css-color'
 Plug 'w0ng/vim-hybrid'
+Plug 'preservim/vim-markdown'
 " Plug 'sickill/vim-monokai'
 
 
@@ -72,6 +74,11 @@ let g:jedi#force_py_version = 3
 
 " w0ng/vim-hybrid
 let g:hybrid_custom_term_colors = 1
+
+" preservim/vim-markdown
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal = 0
 
 " Yggdroot/indentLine
 " let g:indentLine_setConceal = 0
@@ -189,17 +196,17 @@ function! PythonSyntax()
   hi MyPythonNumber  cterm=none ctermfg=blue ctermbg=none
 endfunction
 
-" autocmd BufNewFile,BufRead *.md set filetype=markdown
-" autocmd BufNewFile,BufRead *.ad set filetype=asciidoc
-" autocmd BufNewFile,BufRead *.cls set filetype=tex
-" autocmd BufNewFile,BufRead *.scss set tw=0
-" autocmd FileType * set conceallevel=0
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.ad set filetype=asciidoc
+autocmd BufNewFile,BufRead *.cls set filetype=tex
+autocmd BufNewFile,BufRead *.scss set tw=0
+autocmd FileType * set conceallevel=0
 
 autocmd FileType python setlocal ts=2 sw=2 sts=4
 autocmd FileType python setlocal tw=88
 autocmd FileType python call PythonSyntax()
 " " autocmd FileType python,sh setlocal iskeyword-=_
-" autocmd FileType markdown,tex set conceallevel=0
+autocmd FileType markdown,tex set conceallevel=0
 
 " set runtimepath+=~/.vim_runtime
 

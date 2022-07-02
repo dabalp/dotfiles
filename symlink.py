@@ -44,8 +44,8 @@ def create_links(repo, user):
 
 
 def main():
-  # repo = (pathlib.Path(__file__).parent / 'home').resolve()
-  repo = (pathlib.Path(__file__).parent).resolve()
+  repo = (pathlib.Path(__file__).parent / 'home').resolve()
+  # repo = (pathlib.Path(__file__).parent).resolve()
   user = pathlib.Path('~').expanduser().resolve()
   print(repo)
   print(user)
