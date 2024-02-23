@@ -40,7 +40,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'yggdroot/indentline'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'lervag/vimtex'
@@ -82,7 +82,8 @@ let mapleader = " "
 " vimtex.nvim
 filetype plugin indent on
 syntax enable
-let g:vimtex_view_method = 'zathura'
+" let g:vimtex_view_method = 'zathura' " Use for linux 
+let g:vimtex_view_method = 'skim' " Use for macos
 let maplocalleader = " "
 
 " vim-fugitive
@@ -127,10 +128,10 @@ let g:vim_markdown_conceal = 0
 " Yggdroot/indentLine
 " let g:indentLine_setConceal = 0
 
-" SirVer/ultisnips
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+" " SirVer/ultisnips
+" let g:UltiSnipsExpandTrigger='<tab>'
+" let g:UltiSnipsJumpForwardTrigger='<tab>'
+" let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
